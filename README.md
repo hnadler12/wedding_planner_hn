@@ -111,7 +111,7 @@ npm install
 
 ---
 
-## 🔧 Configuration des fichiers .env
+## Configuration des fichiers .env
 
 Crée un fichier `.env` dans le dossier `wedding_planner/` :
 
@@ -124,7 +124,7 @@ JWT_SECRET=weddingplanner_secret_key_2024
 
 ---
 
-## 🚀 Lancer le projet
+## Lancer le projet
 
 Tu as besoin de **3 terminaux** ouverts simultanément :
 
@@ -155,7 +155,7 @@ L'application s'ouvre automatiquement sur **http://localhost:3000**
 
 ---
 
-## 🗺 Routes principales de l'API
+## Routes principales de l'API
 
 ### Authentification
 | Méthode | Route | Description |
@@ -222,7 +222,7 @@ Chaque document (mariage, invité, prestataire, budget) contient un champ `userI
 
 ---
 
-## 📸 Captures d'écran
+## Captures d'écran
 
 ### Page d'inscription
 ![Inscription](./screenshots/signup.png)
