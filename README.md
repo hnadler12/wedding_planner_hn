@@ -225,31 +225,24 @@ Chaque document (mariage, invité, prestataire, budget) contient un champ `userI
 ## 📸 Captures d'écran
 
 ### Page d'inscription
-<!-- Ajoute ta capture ici -->
 ![Inscription](./screenshots/signup.png)
 
 ### Page de connexion
-<!-- Ajoute ta capture ici -->
 ![Connexion](./screenshots/login.png)
 
 ### Liste des mariages
-<!-- Ajoute ta capture ici -->
 ![Mariages](./screenshots/weddings.png)
 
 ### Ajout d'un invité
-<!-- Ajoute ta capture ici -->
 ![Invités](./screenshots/guests.png)
 
 ### Ajout d'un prestataire
-<!-- Ajoute ta capture ici -->
 ![Prestataires](./screenshots/vendors.png)
 
-### Tests Postman / Insomnia
-<!-- Ajoute ta capture ici -->
-![Tests API](./screenshots/postman.png)
+### Ajout d'un budget
+![Budget](./screenshots/budget.png)
 
 ### MongoDB Compass
-<!-- Ajoute ta capture ici -->
 ![MongoDB](./screenshots/mongodb.png)
 
 ---
