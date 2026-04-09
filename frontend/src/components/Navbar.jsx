@@ -23,6 +23,7 @@ function Navbar() {
         <Link to="/guests">Invités</Link>
         <Link to="/vendors">Prestataires</Link>
         <Link to="/budgets">Budget</Link>
+        <Link to="/tasks">Tâches</Link>
 
         {user ? (
           <>

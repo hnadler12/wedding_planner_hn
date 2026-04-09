@@ -1,23 +1,43 @@
+// src/services/api.js
+
 const BASE_URL = 'http://localhost:5000/api';
 
+// ─── Helper pour faire toutes les requêtes avec JWT ───────────────
+const fetchWithAuth = async (endpoint, options = {}) => {
+  const token = localStorage.getItem('token'); // Récupère le token
+  const headers = {
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${token}`,
+    ...options.headers
+  };
+
+  const res = await fetch(`${BASE_URL}${endpoint}`, { ...options, headers });
+  if (!res.ok) {
+    const errorText = await res.text();
+    throw new Error(`Erreur ${res.status}: ${errorText}`);
+  }
+  return res.json();
+};
+
 // ─── WEDDINGS ───────────────────────────────────────────
-export const getWeddings = () => fetch(`${BASE_URL}/weddings`).then(r => r.json());
-export const createWedding = (data) => fetch(`${BASE_URL}/weddings`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) }).then(r => r.json());
-export const deleteWedding = (id) => fetch(`${BASE_URL}/weddings/${id}`, { method: 'DELETE' }).then(r => r.json());
+export const getWeddings = () => fetchWithAuth('/weddings');
+export const createWedding = (data) => fetchWithAuth('/weddings', { method: 'POST', body: JSON.stringify(data) });
+export const updateWedding = (id, data) => fetchWithAuth(`/weddings/${id}`, { method: 'PUT', body: JSON.stringify(data) });
+export const deleteWedding = (id) => fetchWithAuth(`/weddings/${id}`, { method: 'DELETE' });
 
 // ─── GUESTS ─────────────────────────────────────────────
-export const getGuests = () => fetch(`${BASE_URL}/guests`).then(r => r.json());
-export const createGuest = (data) => fetch(`${BASE_URL}/guests`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) }).then(r => r.json());
-export const updateGuest = (id, data) => fetch(`${BASE_URL}/guests/${id}`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) }).then(r => r.json());
-export const deleteGuest = (id) => fetch(`${BASE_URL}/guests/${id}`, { method: 'DELETE' }).then(r => r.json());
+export const getGuests = () => fetchWithAuth('/guests');
+export const createGuest = (data) => fetchWithAuth('/guests', { method: 'POST', body: JSON.stringify(data) });
+export const updateGuest = (id, data) => fetchWithAuth(`/guests/${id}`, { method: 'PUT', body: JSON.stringify(data) });
+export const deleteGuest = (id) => fetchWithAuth(`/guests/${id}`, { method: 'DELETE' });
 
 // ─── VENDORS ────────────────────────────────────────────
-export const getVendors = () => fetch(`${BASE_URL}/vendors`).then(r => r.json());
-export const createVendor = (data) => fetch(`${BASE_URL}/vendors`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) }).then(r => r.json());
-export const updateVendor = (id, data) => fetch(`${BASE_URL}/vendors/${id}`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) }).then(r => r.json());
-export const deleteVendor = (id) => fetch(`${BASE_URL}/vendors/${id}`, { method: 'DELETE' }).then(r => r.json());
+export const getVendors = () => fetchWithAuth('/vendors');
+export const createVendor = (data) => fetchWithAuth('/vendors', { method: 'POST', body: JSON.stringify(data) });
+export const updateVendor = (id, data) => fetchWithAuth(`/vendors/${id}`, { method: 'PUT', body: JSON.stringify(data) });
+export const deleteVendor = (id) => fetchWithAuth(`/vendors/${id}`, { method: 'DELETE' });
 
 // ─── BUDGETS ────────────────────────────────────────────
-export const getBudgets = () => fetch(`${BASE_URL}/budgets`).then(r => r.json());
-export const createBudget = (data) => fetch(`${BASE_URL}/budgets`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) }).then(r => r.json());
-export const deleteBudget = (id) => fetch(`${BASE_URL}/budgets/${id}`, { method: 'DELETE' }).then(r => r.json());
+export const getBudgets = () => fetchWithAuth('/budgets');
+export const createBudget = (data) => fetchWithAuth('/budgets', { method: 'POST', body: JSON.stringify(data) });
+export const deleteBudget = (id) => fetchWithAuth(`/budgets/${id}`, { method: 'DELETE' });

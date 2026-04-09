@@ -8,6 +8,7 @@ import Weddings from "./pages/Weddings";
 import Guests from "./pages/Guests";
 import Vendors from "./pages/Vendors";
 import Budget from "./pages/Budget";
+import TaskList from "./pages/TaskList";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 
@@ -27,6 +28,7 @@ function App() {
           <Route path="/guests" element={<PrivateRoute><Guests /></PrivateRoute>} />
           <Route path="/vendors" element={<PrivateRoute><Vendors /></PrivateRoute>} />
           <Route path="/budgets" element={<PrivateRoute><Budget /></PrivateRoute>} />
+          <Route path="/tasks" element={<PrivateRoute><TaskList /></PrivateRoute>} />
         </Routes>
       </Router>
     </AuthProvider>

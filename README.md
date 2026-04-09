@@ -109,20 +109,6 @@ cd ../frontend
 npm install
 ```
 
----
-
-## Configuration des fichiers .env
-
-Crée un fichier `.env` dans le dossier `wedding_planner/` :
-
-```env
-MONGO_URI=mongodb://localhost:27017/wedding_planner
-PORT=5000
-JWT_SECRET=weddingplanner_secret_key_2024
-```
-
-
----
 
 ## Lancer le projet
 
