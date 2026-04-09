@@ -109,6 +109,20 @@ cd ../frontend
 npm install
 ```
 
+---
+
+## Configuration des fichiers .env
+
+Crée un fichier `.env` dans le dossier `wedding_planner/` :
+
+```env
+MONGO_URI=mongodb://localhost:27017/wedding_planner
+PORT=5000
+JWT_SECRET=weddingplanner_secret_key_2024
+```
+
+
+---
 
 ## Lancer le projet
 
@@ -228,8 +242,40 @@ Chaque document (mariage, invité, prestataire, budget) contient un champ `userI
 ### Ajout d'un budget
 ![Budget](./screenshots/budget.png)
 
+### Ajout d'une task
+![MongoDB](./screenshots/task.png)
+
 ### MongoDB Compass
 ![MongoDB](./screenshots/mongodb.png)
 
----
+### connexion utilisateur insomnia
+![MongoDB](./screenshots/insomnia.png)
 
+
+
+---
+# Nouvelle fonctionnalité : Gestion des tâches (To-Do List)
+
+Grâce à cette mise à jour, le projet intègre désormais une **fonctionnalité de gestion des tâches** liée aux mariages.  
+
+## Backend
+- Création du modèle **Task** avec les champs : `title`, `description`, `status` et `wedding`.
+- Implémentation complète du **CRUD** pour les tâches :
+  - `GET` : récupérer les tâches d’un utilisateur
+  - `POST` : créer une nouvelle tâche
+  - `PUT` : mettre à jour une tâche existante
+  - `DELETE` : supprimer une tâche
+- Toutes les routes sont protégées par **JWT**, pour sécuriser l’accès aux tâches.
+
+## Frontend
+- Nouvelle page **TaskList** permettant de visualiser et gérer les tâches.
+- Ajout d’un **formulaire** pour créer ou modifier des tâches.
+- Intégration du **CRUD côté client** en lien avec le backend.
+- Association de chaque tâche à un **mariage spécifique**.
+
+## Intégration
+- Nouvelle route `/tasks` ajoutée dans **App.js**.
+- Lien vers la page TaskList ajouté dans la **navbar** pour un accès facile.
+- Communication avec le backend via un fichier `taskApi.js` dédié.
+
+Cette fonctionnalité permet maintenant aux utilisateurs de suivre et gérer toutes les tâches liées à leurs mariages directement depuis l’application, tout en respectant la sécurité et l’authentification déjà mises en place.
